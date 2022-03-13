@@ -11,6 +11,7 @@ pipeline {
         stage('Test Job') {
             steps {
                 echo 'Test Job'
+                xyz
                 sleep 10
             }
         }
