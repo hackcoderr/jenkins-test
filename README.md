@@ -5,3 +5,4 @@
 Checking my github-project
 
 * this is jenkins session
+* added jenkins docker slave node.
