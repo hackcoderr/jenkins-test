@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "hackcoderr/flask:latest" 
         dockerImage = ''
+        }
     agent any
 
     stages {
