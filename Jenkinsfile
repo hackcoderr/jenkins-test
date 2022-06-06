@@ -9,21 +9,9 @@ pipeline {
         stage('Build job') {
             steps { 
                 script { 
-                    dockerImage = docker.build registry  
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
             } 
-        }
-        stage('Test Job') {
-            steps {
-                echo 'Test Job'
-                sleep 10
-            }
-        }
-        stage('Deploy Job') {
-            steps {
-                echo 'Deploy Job'
-                sleep 10
-            }
         }
     }
 }
