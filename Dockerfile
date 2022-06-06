@@ -1,9 +1,12 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install apache2 -y
-RUN apt-get install apache2-utils -y
-RUN apt-get clean
-COPY ./index.html /var/www/html/
-EXPOSE 80
-CMD ["apache2ctl","-D","FOREGROUND"]
+# syntax=docker/dockerfile:1
+FROM python:3.8-slim-buster
+LABEL MAINTANER Sachin Kumar "sachinkumar.mlops@gmail.com"
+
+WORKDIR /python-docker
+COPY ./app/ .
+
+RUN pip3 install -r requirements.txt
+
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+

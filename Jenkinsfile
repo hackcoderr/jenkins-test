@@ -1,12 +1,16 @@
 pipeline {
+    environment {
+        registry = "hackcoderr/flask:latest" 
+        dockerImage = ''
     agent any
 
     stages {
         stage('Build job') {
-            steps {
-                echo 'Build job'
-                sleep 10
-            }
+            steps { 
+                script { 
+                    dockerImage = docker.build registry  
+                }
+            } 
         }
         stage('Test Job') {
             steps {
