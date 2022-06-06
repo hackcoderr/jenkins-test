@@ -10,7 +10,7 @@ pipeline {
         stage('Build job') {
             steps { 
                 script { 
-                    dockerImage = sudo docker.build registry
+                    dockerImage = docker.build registry
                 }
             } 
         }
