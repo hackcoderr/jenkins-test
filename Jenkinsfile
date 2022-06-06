@@ -1,6 +1,7 @@
 pipeline {
     environment {
         registry = "hackcoderr/flask:latest" 
+        registryCredential = 'dockercred'
         dockerImage = ''
         }
     agent any
