@@ -7,15 +7,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build job') {
+        stage('Build Image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry
+                    dockerImage = docker.build registry  
                 }
             } 
         }
-    }
-    stage('Push Image') { 
+        stage('Push Image') { 
             steps { 
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
@@ -24,5 +23,5 @@ pipeline {
                 } 
             }
         }
-    }    
+    }
 }
