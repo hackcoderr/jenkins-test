@@ -4,7 +4,9 @@ pipeline {
         registryCredential = 'dockercred'
         dockerImage = ''
         }
-    agent any
+    agent{
+        label 'docker-node'
+    }
 
     stages {
         stage('Build job') {
